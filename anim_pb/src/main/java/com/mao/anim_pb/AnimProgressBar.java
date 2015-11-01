@@ -1,14 +1,13 @@
 package com.mao.anim_pb;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-
-import com.mao.anim_pb.R;
 
 /**
  * 定制进度动画的ProgressBar
@@ -49,8 +48,8 @@ public class AnimProgressBar extends ProgressBar{
         this.setHorizontalScrollBarEnabled(true);
         this.setMax(100);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        this.setProgressDrawable(getResources().getDrawable(R.drawable.anim_progressbar_bg));
-        this.setBackgroundResource(R.drawable.anim_progress_bg);
+        this.setProgressDrawable(getResources().getDrawable(R.drawable.anim_progress_bg));
+        this.setBackgroundResource(R.drawable.anim_progressbar_bg);
         mFirstRunnable = new FirstRunnable();
         mSecondRunnable = new SecondRunnable();
 

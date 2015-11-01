@@ -6,7 +6,6 @@
         android:paddingTop="3px">
         <shape>
             <corners android:radius="20dp"/>
-            <!--<size android:height="22dp"/>-->
             <stroke
                 android:width="2dp"
                 android:color="#FFF"/>
@@ -22,7 +21,6 @@
         <clip>
             <shape>
                 <corners android:radius="20dp"/>
-                <!--<size android:height="22dp"/>-->
                 <stroke
                     android:width="2dp"
                     android:color="#FFF"/>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_download"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/dialog_header_bg">
+
+        <com.mao.anim_pb.AnimProgressBar
+            android:id="@+id/progressbar"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="0%"
+            android:textColor="@color/progress_text_color"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_download_cancle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/rl_download"
+        android:background="@drawable/dialog_bottom_bg"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="取消"
+        android:textColor="#ffffff"
+        android:textSize="20sp"/>
+
+</RelativeLayout>
