@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 .setCancelable(true)
                 .create();
         dialog.show();
+        mStop = false;
+        mProgress = 0;
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable());
         dialog.getWindow().setContentView(R.layout.anim_pb_dialog);
         mProgressBar = (AnimProgressBar) dialog.getWindow().findViewById(R.id.progressbar);
