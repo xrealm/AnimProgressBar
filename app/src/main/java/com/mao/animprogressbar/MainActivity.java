@@ -1,6 +1,8 @@
 package com.mao.animprogressbar;
 
 import android.app.AlertDialog;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             mProgressBar.setProgress(mProgress);
-                            mTextView.setText(mProgress + "%");
+                            mTextView.setText(String.format("%s%", mProgress));
                         }
                     });
                 }
@@ -64,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
         dialog.getWindow().setContentView(R.layout.anim_pb_dialog);
         mProgressBar = (AnimProgressBar) dialog.getWindow().findViewById(R.id.progressbar);
         mProgressBar.setMax(100);
+        Bitmap bitmap1 = ((BitmapDrawable) getResources().getDrawable(com.mao.anim_pb.R.drawable.pb_anim_pic1)).getBitmap();
+        Bitmap bitmap2 = ((BitmapDrawable) getResources().getDrawable(com.mao.anim_pb.R.drawable.pb_anim_pic2)).getBitmap();
+        mProgressBar.setBitmapBuffer1(bitmap1);
+        mProgressBar.setBitmapBuffer2(bitmap2);
         mTextView = (TextView) dialog.getWindow().findViewById(R.id.tv_progress);
         dialog.getWindow().findViewById(R.id.tv_download_cancle).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         mStop = true;
+        super.onDestroy();
     }
 }

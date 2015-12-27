@@ -1,7 +1,6 @@
 package com.mao.anim_pb;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -35,7 +34,7 @@ public class AnimProgressBar extends ProgressBar{
     private int mTranslate = 0;
 
     public AnimProgressBar(Context context) {
-        super(context);
+        this(context, null);
         init();
     }
 
@@ -80,6 +79,9 @@ public class AnimProgressBar extends ProgressBar{
     @Override
     protected synchronized void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if (mBitmap == null) {
+            return;
+        }
         float radio = getProgress() * 1.0f / getMax();
         float progressPos = mWidth * radio;
         canvas.save();
@@ -109,6 +111,14 @@ public class AnimProgressBar extends ProgressBar{
         setDrawable(index);
         invalidate();
         postDelayed(index == 1 ? mFirstRunnable : mSecondRunnable, 300);
+    }
+
+    public void setBitmapBuffer1(Bitmap bitmap) {
+        mBitmapBuffer1 = bitmap;
+    }
+
+    public void setBitmapBuffer2(Bitmap bitmap) {
+        this.mBitmapBuffer2 = bitmap;
     }
 
     class FirstRunnable implements Runnable {
